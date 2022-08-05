@@ -11,5 +11,5 @@ shift
 }
 
 for i in $(seq 1 $#); do
-    $TODO_SH -f command rm ${!i};
+    $TODO_FULL_SH -f command rm ${!i};
 done

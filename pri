@@ -13,5 +13,5 @@ shift
 for pri; do true; done
 
 for i in $(seq 1 `expr $# - 1`); do
-    $TODO_SH command pri ${!i} $pri;
+    $TODO_FULL_SH command pri ${!i} $pri;
 done
