@@ -4,8 +4,9 @@ action=$1
 shift
 
 [ "$action" = "usage" ] && {
-    echo "  rm ITEM#[, ITEM#, ITEM#, ...]"
-    echo "    For each ITEM#, calls command rm. "
+    echo "  Chained remove"
+    echo "    $(basename $0) ITEM#[, ITEM#, ITEM#, ...]"
+    echo "      For each ITEM#, calls command rm."
     echo ""
     exit
 }

@@ -4,8 +4,9 @@ action=$1
 shift
 
 [ "$action" = "usage" ] && {
-    echo "  pri ITEM#[, ITEM#, ITEM#, ...] PRIORITY"
-    echo "    For each ITEM#, calls command pri with priority PRIORITY."
+    echo "  Chained priority command"
+    echo "    pri ITEM#[, ITEM#, ITEM#, ...] PRIORITY"
+    echo "      For each ITEM#, calls command pri with priority PRIORITY."
     echo ""
     exit
 }

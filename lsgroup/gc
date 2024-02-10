@@ -1,0 +1,23 @@
+#!/bin/bash
+
+action=$1
+shift
+
+[ "$action" = "usage" ] && {
+  echo "  Graph by context:"
+  echo "    gc [lsp]"
+  echo "      generates a textual report of pending and completed tasks in all"
+  echo "      projects and contexts and groups them by the context they belong"
+  echo "      to."
+  echo ""
+  exit
+}
+
+[ "$action" = "gc" ] && {
+    if [ $# -eq 0 ] ; then
+        python2.7 $(dirname "$0")/lsgroup.py "$TODO_FILE" -c
+    elif [[ $1 = 'lsp' ]] ; then
+        python2.7 $(dirname "$0")/lsgroup.py -lsp -c
+    fi
+}
+

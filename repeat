@@ -1,0 +1,24 @@
+#!/bin/bash
+
+action=$1
+shift
+
+[ "$action" = "usage" ] && {
+  echo "  Chained repeat"
+  echo "    repeat ITEM#[, ITEM#, ITEM#, ...] PRIORITY"
+  echo "        For each ITEM#, mark done, then add with PRIORITY."
+  echo ""
+  exit
+}
+
+for pri; do true; done
+
+for i in $(seq 1 `expr $# - 1`); do
+    LINE=$(sed "${!i}!d" "$TODO_FILE")
+    if [[ "$LINE" != "" ]] ; then
+        $TODO_FULL_SH -f command do ${!i}
+        $TODO_FULL_SH -f command add "$LINE"
+    fi
+    num=`sed -n '$ =' "$TODO_FILE"`
+    [[ "$pri" =~ [a-zA-Z] ]] && $TODO_FULL_SH -f command pri $num $pri;
+done
