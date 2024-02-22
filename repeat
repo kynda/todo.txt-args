@@ -17,9 +17,11 @@ for i in $(seq 1 `expr $#`); do
     [[ ${!i} =~ [a-zA-Z] ]] && continue
     LINE=$(sed "${!i}!d" "$TODO_FILE")
     if [[ "$LINE" != "" ]] ; then
-        $TODO_FULL_SH -f command do ${!i}
+        $TODO_FULL_SH -a -f command do ${!i}
         $TODO_FULL_SH -f command add "$LINE"
     fi
     num=`sed -n '$ =' "$TODO_FILE"`
     [[ "$pri" =~ [a-zA-Z] ]] && $TODO_FULL_SH -f command pri $num $pri;
 done
+
+$TODO_FULL_SH -f command archive
