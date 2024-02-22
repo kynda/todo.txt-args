@@ -16,13 +16,15 @@ class bcolors:
     YELLOW = '\033[0;33m'
     L_RED  = '\033[1;31m'
     RED    = '\033[0;31m'
+    PURP   = '\033[0;35m'
     ENDC   = '\033[0m'
 
 HIGHLIGHTS = (
     ('(A)', bcolors.BLUE),
     ('(B)', bcolors.GREEN),
     ('(C)', bcolors.YELLOW),
-    ('(D)', bcolors.L_RED)
+    ('(D)', bcolors.L_RED),
+    ('(E)', bcolors.PURP)
 )
 COLUMN_W = 45 # 40 breaks when fullscreen
 SPLIT_COLUMNS = False
