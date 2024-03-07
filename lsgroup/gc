@@ -17,7 +17,7 @@ shift
     if [ $# -eq 0 ] ; then
         python2.7 $(dirname "$0")/lsgroup.py "$TODO_FILE" -c
     elif [[ $1 = 'lsp' ]] ; then
-        python2.7 $(dirname "$0")/lsgroup.py -lsp -c
+        python2.7 $(dirname "$0")/lsgroup.py -lsp -c $2
     fi
 }
 

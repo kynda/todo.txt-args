@@ -42,6 +42,7 @@ def main(argv):
     # contexts or projects
     pre = '\+' if '-p' in argv else '@'
     ls = 'lsp' if '-lsp' in argv else 'ls'
+    pri = argv[2] if 2 < len(argv) else ''
 
     # this ignores final filter and stuff
     """
@@ -56,7 +57,7 @@ def main(argv):
     # get no colors because strings are weird
     # lines = [l for l in subprocess.check_output(['./todo.sh', '-p', 'ls'], cwd=TODOSH_DIR).split('\n')
     # if len(re.findall('^\d+', l)) > 0]
-    lines = subprocess.check_output(['./todo.sh', '-p', ls], cwd=TODOSH_DIR).split('\n')
+    lines = subprocess.check_output(['./todo.sh', '-p', ls, pri], cwd=TODOSH_DIR).split('\n')
     lines = lines[:len(lines) - 3] # get rid of the last unnecessary lines
 
     # numbers from start to end so you can sort later on
